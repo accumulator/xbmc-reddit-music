@@ -62,7 +62,10 @@ class YouTube(_MediaHost):
         '''
         parts = urlparse.urlparse(url)
         params = urlparse.parse_qs(parts.query)
-        video_id = params['v'][0]
+        try:
+            video_id = params['v'][0]
+        except:
+            return None
         return cls._play_url(video_id)
 
     @classmethod
