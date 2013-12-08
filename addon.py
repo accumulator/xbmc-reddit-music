@@ -156,7 +156,7 @@ def create_playable_item(link):
         item['info'] = {
             'plot': link['media']['oembed']['description'],
         }
-    except TypeError:
+    except TypeError, KeyError:
         pass
 
     my_playlists = plugin.get_storage('my_playlists')
